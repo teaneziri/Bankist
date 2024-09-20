@@ -127,7 +127,9 @@ window.onscroll = function() {
 };
 
 const navbar = document.querySelector(".nav");
-const sticky = navbar.offsetTop;
+const header=document.querySelector('.header');
+//const sticky = navbar.offsetTop;
+const sticky=header.offsetHeight;
 
 
 function stickyNavbar() {
