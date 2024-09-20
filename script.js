@@ -121,6 +121,8 @@ const handleHover = function (e) {
 nav.addEventListener('mouseover', handleHover.bind(0.5));
 nav.addEventListener('mouseout', handleHover.bind(1));
 
+
+
 //STICKY NAVIGATION
 window.onscroll = function() {
   stickyNavbar();
@@ -139,3 +141,17 @@ function stickyNavbar() {
       navbar.classList.remove("sticky");
   }
 }
+
+//Revealing sections on scroll
+window.addEventListener('scroll',function(){
+  const sections=document.querySelectorAll('.section');
+
+  sections.forEach(section=>{
+    const windowHeight=window.innerHeight;
+    const sectionTop=section.getBoundingClientRect().top;
+
+    if(sectionTop<windowHeight){
+      section.classList.remove('section--hidden')
+    }
+  })
+})
