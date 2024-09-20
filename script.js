@@ -155,3 +155,20 @@ window.addEventListener('scroll',function(){
     }
   })
 })
+
+//Lazy loading images
+document.addEventListener('DOMContentLoaded', function() {
+  const lazyImages = document.querySelectorAll('.lazy-img');
+
+  const lazyLoad = () => {
+      lazyImages.forEach(img => {
+          if (img.getBoundingClientRect().top < window.innerHeight) {
+              img.src = img.dataset.src; 
+              img.classList.remove('lazy-img'); 
+          }
+      });
+  };
+
+  window.addEventListener('scroll', lazyLoad);
+  lazyLoad(); 
+});
